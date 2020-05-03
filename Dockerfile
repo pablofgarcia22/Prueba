@@ -1,5 +1,5 @@
 # Partimos de una base oficial de python
-FROM python:2.7-slim
+FROM python:3.8.2-slim
 
 # El directorio de trabajo es desde donde se ejecuta el contenedor al iniciarse
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Ejecutamos pip para instalar las dependencias en el contenedor
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 # Indicamos que este contenedor se comunica por el puerto 80/tcp
 EXPOSE 80
@@ -17,4 +17,4 @@ EXPOSE 80
 ENV NAME World
 
 # Ejecuta nuestra aplicación cuando se inicia el contenedor
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
